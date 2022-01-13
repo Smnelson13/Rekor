@@ -16,9 +16,9 @@ extension ContentView {
         var APOD: APOD?
         
         func getAPOTD() {
-//            apiController.fetch(Constants.baseURL) {
-//                print("APIController APOD fetch Complete.")
-//            })
+            apiController.fetchAPOD(Constants.baseURL) { result in
+                print("The result is... \(result)")
+            }
         }
     }
 }
