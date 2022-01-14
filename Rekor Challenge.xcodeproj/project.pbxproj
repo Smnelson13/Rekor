@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		907B1CAC278F51A1006CAC04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907B1CAB278F51A1006CAC04 /* Constants.swift */; };
+		909A499B279106E1004DF785 /* APIControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909A499A279106E1004DF785 /* APIControllerDelegate.swift */; };
 		90FF8821278E3A4D004511F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8820278E3A4D004511F6 /* AppDelegate.swift */; };
 		90FF8823278E3A4D004511F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8822278E3A4D004511F6 /* SceneDelegate.swift */; };
 		90FF8825278E3A4D004511F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8824278E3A4D004511F6 /* ContentView.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		907B1CAB278F51A1006CAC04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		909A499A279106E1004DF785 /* APIControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIControllerDelegate.swift; sourceTree = "<group>"; };
 		90FF881D278E3A4D004511F6 /* Rekor Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rekor Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90FF8820278E3A4D004511F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90FF8822278E3A4D004511F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				90FF8852278E3B3F004511F6 /* APIController.swift */,
 				90FF885B278E55DC004511F6 /* URLSession.swift */,
 				90FF885D278E581B004511F6 /* Err.swift */,
+				909A499A279106E1004DF785 /* APIControllerDelegate.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				90FF8821278E3A4D004511F6 /* AppDelegate.swift in Sources */,
 				90FF8823278E3A4D004511F6 /* SceneDelegate.swift in Sources */,
 				90FF885E278E581B004511F6 /* Err.swift in Sources */,
+				909A499B279106E1004DF785 /* APIControllerDelegate.swift in Sources */,
 				90FF8825278E3A4D004511F6 /* ContentView.swift in Sources */,
 				90FF8855278E3BDB004511F6 /* Keys.swift in Sources */,
 				90FF8865278E5B22004511F6 /* ContentViewState.swift in Sources */,

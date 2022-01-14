@@ -9,18 +9,18 @@ import Foundation
 
 class APIController {
     
-    func fetchAPOD(_ urlString: String, _ completion: @escaping (APOD) -> ()) {
+    var delegate: APIControllerDelegate?
+    
+    func fetchAPOD(_ urlString: String, _ completion: @escaping (_ T: Codable?, _ error: Error?) -> Void) {
         guard let url = URL(string: urlString) else {
             return
         }
         URLSession.shared.request(url: url, expecting: APOD.self) {  result in
             switch result {
-                case .success(let result):
-                print(result)
-                //completion(.success(result))
+                case .success(let response):
+                completion(response, nil)
                 case .failure(let error):
-                print(error)
-                //completion(.failure(error))
+                completion(nil, error)
             }
         }
     }

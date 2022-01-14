@@ -11,13 +11,17 @@ extension ContentView {
     
     @MainActor class ContentViewStore: ObservableObject {
         
-        typealias Handler = (ContentViewState) -> Void
-        let apiController = APIController()
-        var APOD: APOD?
+        @Published var apod: APOD?
         
-        func getAPOTD() {
-            apiController.fetchAPOD(Constants.baseURL) { result in
-                print("The result is... \(result)")
+        let apiController = APIController()
+        
+        func getAPOTD() {            
+            apiController.fetchAPOD(Constants.baseURL) { data, error in
+                if let data = data {
+                    print("Success - \(data)")
+                } else if let err = error {
+                    print("ERROR loading data - \(err)")
+                }
             }
         }
     }
