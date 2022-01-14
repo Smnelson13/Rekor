@@ -12,32 +12,36 @@ struct APOD: Codable {
     let copyright: String
     let date: String
     let explanation: String
-    let url: String
-    let hdurl: String
-    let media_type: String
-    let service_version: String
+    let imageURL: String
+    let hdImageURL: String
+    let mediaType: String
+    let serviceVersion: String 
     let title: String
     
+    enum CodingKeys: String, CodingKey {
+        case copyright
+        case date
+        case explanation
+        case imageURL = "url"
+        case hdImageURL = "hdurl"
+        case mediaType = "media_type"
+        case serviceVersion = "service_version"
+        case title
+    }
+
     
-    //TODO: - Fix decodable and codable.
-    
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        try
-//    }
-//
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-////        try container.encode(age, forKey: .age)
-////
-////        var name = container.nestedContainer(keyedBy: NameCodingKeys.self, forKey: .name)
-////        try name.encode(firstName, forKey: .firstName)
-////        try name.encode(lastName, forKey: .lastName)
-//    }
-//
-//    enum CodingKeys: String, CodingKey {
-//        case hdImageURL = "hdurl"
-//        case imageURL = ""
-//    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+
+        copyright = try values.decode(String.self, forKey: .copyright)
+        date = try values.decode(String.self, forKey: .date)
+        explanation = try values.decode(String.self, forKey: .explanation)
+        imageURL = try values.decode(String.self, forKey: .imageURL)
+        hdImageURL = try values.decode(String.self, forKey: .hdImageURL)
+        mediaType = try values.decode(String.self, forKey: .mediaType)
+        serviceVersion = try values.decode(String.self, forKey: .serviceVersion)
+        title = try values.decode(String.self, forKey: .title)
+    }
 
 }

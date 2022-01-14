@@ -20,7 +20,9 @@ struct ContentView: View {
     
     private func fetchAPOTD() {
         store.getAPOTD()
+        
     }
+    
 }
 
 
