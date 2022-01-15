@@ -1,13 +1,15 @@
 //
-//  Err.swift
+//  APIError.swift
 //  Rekor Challenge
 //
-//  Created by Shane Nelson on 1/11/22.
+//  Created by Shane Nelson on 1/14/22.
 //
 
 import Foundation
 
-enum Err: Error {
+enum APIError: Error {
     case invalidURL
     case invalidData
+    
 }
+

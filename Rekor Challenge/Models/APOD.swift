@@ -15,7 +15,7 @@ struct APOD: Codable {
     let imageURL: String
     let hdImageURL: String
     let mediaType: String
-    let serviceVersion: String 
+    let serviceVersion: String
     let title: String
     
     enum CodingKeys: String, CodingKey {

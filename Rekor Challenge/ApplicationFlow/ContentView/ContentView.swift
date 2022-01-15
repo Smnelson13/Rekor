@@ -13,9 +13,16 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            Text("This is text")
-                .padding()
-        }.onAppear(perform: fetchAPOTD)
+            if store.isLoading {
+                LoadingView()
+            } else if store.errorMessage != nil {
+                ErrorView(errorMessage: store.errorMessage ?? "Failed to retrieve pictures.")
+            } else {
+                // Load the listView
+            }
+        }.onAppear {
+            store.getAPOTD()
+        }
     }
     
     private func fetchAPOTD() {
@@ -23,18 +30,6 @@ struct ContentView: View {
         
     }
     
-}
-
-
-extension ContentView {
-    func reduceAndUpdate(_ state: ContentViewState) {
-        switch state {
-        case .errorLoadingData(let error):
-            print("Error Loading Data \(error.localizedDescription). ContentView")
-        case .success:
-            print("Successfully Loaded Data. ContentView")
-        }
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {

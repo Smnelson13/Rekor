@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		907B1CAC278F51A1006CAC04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907B1CAB278F51A1006CAC04 /* Constants.swift */; };
 		909A499B279106E1004DF785 /* APIControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909A499A279106E1004DF785 /* APIControllerDelegate.swift */; };
+		909A499D2791D743004DF785 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909A499C2791D743004DF785 /* APIError.swift */; };
+		909A49A02791DAEF004DF785 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909A499F2791DAEF004DF785 /* LoadingView.swift */; };
+		909A49A527924707004DF785 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909A49A427924707004DF785 /* ErrorView.swift */; };
 		90FF8821278E3A4D004511F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8820278E3A4D004511F6 /* AppDelegate.swift */; };
 		90FF8823278E3A4D004511F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8822278E3A4D004511F6 /* SceneDelegate.swift */; };
 		90FF8825278E3A4D004511F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8824278E3A4D004511F6 /* ContentView.swift */; };
@@ -21,9 +24,7 @@
 		90FF8855278E3BDB004511F6 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8854278E3BDB004511F6 /* Keys.swift */; };
 		90FF8857278E5236004511F6 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8856278E5236004511F6 /* APOD.swift */; };
 		90FF885C278E55DC004511F6 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF885B278E55DC004511F6 /* URLSession.swift */; };
-		90FF885E278E581B004511F6 /* Err.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF885D278E581B004511F6 /* Err.swift */; };
 		90FF8863278E5B12004511F6 /* ContentViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8862278E5B12004511F6 /* ContentViewStore.swift */; };
-		90FF8865278E5B22004511F6 /* ContentViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8864278E5B22004511F6 /* ContentViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,9 @@
 /* Begin PBXFileReference section */
 		907B1CAB278F51A1006CAC04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		909A499A279106E1004DF785 /* APIControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIControllerDelegate.swift; sourceTree = "<group>"; };
+		909A499C2791D743004DF785 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		909A499F2791DAEF004DF785 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		909A49A427924707004DF785 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		90FF881D278E3A4D004511F6 /* Rekor Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rekor Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90FF8820278E3A4D004511F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90FF8822278E3A4D004511F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,9 +68,7 @@
 		90FF8854278E3BDB004511F6 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		90FF8856278E5236004511F6 /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
 		90FF885B278E55DC004511F6 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
-		90FF885D278E581B004511F6 /* Err.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Err.swift; sourceTree = "<group>"; };
 		90FF8862278E5B12004511F6 /* ContentViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewStore.swift; sourceTree = "<group>"; };
-		90FF8864278E5B22004511F6 /* ContentViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		909A499E2791DADA004DF785 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				909A499F2791DAEF004DF785 /* LoadingView.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		909A49A1279246DE004DF785 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				909A49A427924707004DF785 /* ErrorView.swift */,
+			);
+			path = ErrorView;
+			sourceTree = "<group>";
+		};
 		90FF8814278E3A4D004511F6 = {
 			isa = PBXGroup;
 			children = (
@@ -171,8 +189,8 @@
 			children = (
 				90FF8852278E3B3F004511F6 /* APIController.swift */,
 				90FF885B278E55DC004511F6 /* URLSession.swift */,
-				90FF885D278E581B004511F6 /* Err.swift */,
 				909A499A279106E1004DF785 /* APIControllerDelegate.swift */,
+				909A499C2791D743004DF785 /* APIError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -180,6 +198,8 @@
 		90FF885F278E5A96004511F6 /* ApplicationFlow */ = {
 			isa = PBXGroup;
 			children = (
+				909A49A1279246DE004DF785 /* ErrorView */,
+				909A499E2791DADA004DF785 /* LoadingView */,
 				90FF8861278E5AD7004511F6 /* DetailView */,
 				90FF8860278E5AC9004511F6 /* ContentView */,
 			);
@@ -191,7 +211,6 @@
 			children = (
 				90FF8824278E3A4D004511F6 /* ContentView.swift */,
 				90FF8862278E5B12004511F6 /* ContentViewStore.swift */,
-				90FF8864278E5B22004511F6 /* ContentViewState.swift */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -338,12 +357,13 @@
 				90FF885C278E55DC004511F6 /* URLSession.swift in Sources */,
 				90FF8857278E5236004511F6 /* APOD.swift in Sources */,
 				90FF8821278E3A4D004511F6 /* AppDelegate.swift in Sources */,
+				909A499D2791D743004DF785 /* APIError.swift in Sources */,
 				90FF8823278E3A4D004511F6 /* SceneDelegate.swift in Sources */,
-				90FF885E278E581B004511F6 /* Err.swift in Sources */,
 				909A499B279106E1004DF785 /* APIControllerDelegate.swift in Sources */,
 				90FF8825278E3A4D004511F6 /* ContentView.swift in Sources */,
 				90FF8855278E3BDB004511F6 /* Keys.swift in Sources */,
-				90FF8865278E5B22004511F6 /* ContentViewState.swift in Sources */,
+				909A49A02791DAEF004DF785 /* LoadingView.swift in Sources */,
+				909A49A527924707004DF785 /* ErrorView.swift in Sources */,
 				90FF8863278E5B12004511F6 /* ContentViewStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

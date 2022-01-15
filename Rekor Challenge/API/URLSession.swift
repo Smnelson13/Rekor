@@ -9,9 +9,9 @@ import Foundation
 
 extension URLSession {
     
-    func request<T: Codable>(url: URL?, expecting: T.Type, completion: @escaping (Result<T,Error>) -> Void ) {
+    func makeRequest<T: Codable>(url: URL?, expecting: T.Type, completion: @escaping (Result<T,Error>) -> Void ) {
         guard let url = url else {
-            completion(.failure(Err.invalidURL))
+            completion(.failure(APIError.invalidURL))
             return
         }
         let task = dataTask(with: url) { data, _, error in
@@ -19,11 +19,10 @@ extension URLSession {
                 if let error = error {
                     completion(.failure(error))
                 } else {
-                    completion(.failure(Err.invalidData))
+                    completion(.failure(APIError.invalidData))
                 }
                 return
             }
-            
             do {
                 let result = try JSONDecoder().decode(expecting, from: data)
                 completion(.success(result))
