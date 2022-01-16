@@ -18,7 +18,7 @@ struct ContentView: View {
             } else if store.errorMessage != nil {
                 ErrorView(errorMessage: store.errorMessage ?? "Failed to retrieve pictures.")
             } else {
-                // Load the listView
+                APODListView(apods: APOD.MockAPODS())
             }
         }.onAppear {
             store.getAPOTD()
