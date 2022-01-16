@@ -1,5 +1,5 @@
 //
-//  APODListView.swift
+//  FavoritesView.swift
 //  Rekor Challenge
 //
 //  Created by Shane Nelson on 1/15/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct APODListView: View {
+struct FavoritesView: View {
     
     var apods: [APOD]
     
@@ -22,20 +22,12 @@ struct APODListView: View {
                     }
                 }
             }.listStyle(.plain)
-                .toolbar {
-                    Button("Favorites") {
-                        //print("Favorites button tapped")
-//                        NavigationLink( {
-//
-//                        }
-                    }
-                }
-        }.navigationTitle("Astronomy")
+        }.navigationTitle("Favorites")
     }
 }
 
-struct APODListView_Previews: PreviewProvider {
+struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        APODListView(apods: APOD.MockAPODS())
+        FavoritesView(apods: APOD.MockAPODS())
     }
 }

@@ -15,6 +15,7 @@
 		909A49AE2793A1CA004DF785 /* APODListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909A49AD2793A1CA004DF785 /* APODListView.swift */; };
 		909A49B12793A1E5004DF785 /* APODDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909A49B02793A1E5004DF785 /* APODDetailView.swift */; };
 		909A49B72793A3A3004DF785 /* APODListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909A49B62793A3A3004DF785 /* APODListItem.swift */; };
+		909A49BA2793BA4E004DF785 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909A49B92793BA4E004DF785 /* FavoritesView.swift */; };
 		90FF8821278E3A4D004511F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8820278E3A4D004511F6 /* AppDelegate.swift */; };
 		90FF8823278E3A4D004511F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8822278E3A4D004511F6 /* SceneDelegate.swift */; };
 		90FF8825278E3A4D004511F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF8824278E3A4D004511F6 /* ContentView.swift */; };
@@ -56,6 +57,7 @@
 		909A49AD2793A1CA004DF785 /* APODListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODListView.swift; sourceTree = "<group>"; };
 		909A49B02793A1E5004DF785 /* APODDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDetailView.swift; sourceTree = "<group>"; };
 		909A49B62793A3A3004DF785 /* APODListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODListItem.swift; sourceTree = "<group>"; };
+		909A49B92793BA4E004DF785 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		90FF881D278E3A4D004511F6 /* Rekor Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rekor Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90FF8820278E3A4D004511F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90FF8822278E3A4D004511F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 				909A49B02793A1E5004DF785 /* APODDetailView.swift */,
 			);
 			path = APODDetailView;
+			sourceTree = "<group>";
+		};
+		909A49B82793BA40004DF785 /* FavoritesView */ = {
+			isa = PBXGroup;
+			children = (
+				909A49B92793BA4E004DF785 /* FavoritesView.swift */,
+			);
+			path = FavoritesView;
 			sourceTree = "<group>";
 		};
 		90FF8814278E3A4D004511F6 = {
@@ -221,6 +231,7 @@
 		90FF885F278E5A96004511F6 /* ApplicationFlow */ = {
 			isa = PBXGroup;
 			children = (
+				909A49B82793BA40004DF785 /* FavoritesView */,
 				909A49AF2793A1CF004DF785 /* APODDetailView */,
 				909A49AC2793A1B8004DF785 /* APODListView */,
 				909A49A1279246DE004DF785 /* ErrorView */,
@@ -390,6 +401,7 @@
 				909A49A02791DAEF004DF785 /* LoadingView.swift in Sources */,
 				909A49A527924707004DF785 /* ErrorView.swift in Sources */,
 				909A49B72793A3A3004DF785 /* APODListItem.swift in Sources */,
+				909A49BA2793BA4E004DF785 /* FavoritesView.swift in Sources */,
 				909A49AE2793A1CA004DF785 /* APODListView.swift in Sources */,
 				909A49B12793A1E5004DF785 /* APODDetailView.swift in Sources */,
 				90FF8863278E5B12004511F6 /* ContentViewStore.swift in Sources */,

@@ -34,7 +34,7 @@ struct APODDetailView: View {
                     Text(apod.title).font(.headline)
                     Text(apod.explanation).font(.footnote).padding()
                     Text(apod.date)
-                    Spacer()
+                    
                     Button("Add To Favorites", action: favoriteAPOD)
                         .padding()
                         .frame(width: 300, height: 40, alignment: .center)
