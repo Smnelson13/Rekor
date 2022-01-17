@@ -9,28 +9,39 @@ import SwiftUI
 
 struct APODListView: View {
     
+    @State private var isShowingFavoritesView = false
     var apods: [APOD]
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(apods) { apod in
-                    NavigationLink {
-                        APODDetailView(apod: apod)
-                    } label: {
-                        APODListItem(apod: apod)
+            VStack {
+                List {
+                    ForEach(apods) { apod in
+                        NavigationLink {
+                            APODDetailView(apod: apod)
+                        } label: {
+                            APODListItem(apod: apod)
+                        }
                     }
-                }
-            }.listStyle(.plain)
-                .toolbar {
-                    Button("Favorites") {
-                        //print("Favorites button tapped")
-//                        NavigationLink( {
-//
-//                        }
-                    }
-                }
-        }.navigationTitle("Astronomy")
+                }.listStyle(.plain)
+                    .toolbar {
+                        ToolbarItem {
+                            Button(action: { isShowingFavoritesView = true }) {
+                                Text("Show Favorites")
+                                //Image(systemName: "Show Favorites")
+                            }
+                        }
+                    }.background(
+                        NavigationLink(destination: FavoritesView(apods: APOD.MockAPODS()), isActive: $isShowingFavoritesView) {
+                            EmptyView()
+                        }.hidden()
+                    )
+            }
+        }.navigationTitle("Astronomy Pics")
+    }
+    
+    func NavigateToFavoritesView() {
+
     }
 }
 
