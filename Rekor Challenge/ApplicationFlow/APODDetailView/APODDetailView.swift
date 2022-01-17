@@ -11,6 +11,7 @@ struct APODDetailView: View {
     
     let apod: APOD
     let imageSize: CGFloat = 300
+    let defaults = UserDefaults.standard
     
     var body: some View {
         ScrollView {
@@ -47,7 +48,10 @@ struct APODDetailView: View {
     }
     
     private func favoriteAPOD() {
-        print("Favorite Button Tapped.")
+        print("Current APOD - \(apod)")
+        if let encoded = try? JSONEncoder().encode(apod) {
+            defaults.set(encoded, forKey: Keys.favoritesKey)
+        }
     }
 }
 

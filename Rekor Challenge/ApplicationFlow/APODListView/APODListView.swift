@@ -28,20 +28,15 @@ struct APODListView: View {
                         ToolbarItem {
                             Button(action: { isShowingFavoritesView = true }) {
                                 Text("Show Favorites")
-                                //Image(systemName: "Show Favorites")
                             }
                         }
                     }.background(
-                        NavigationLink(destination: FavoritesView(apods: APOD.MockAPODS()), isActive: $isShowingFavoritesView) {
+                        NavigationLink(destination: FavoritesView(), isActive: $isShowingFavoritesView) {
                             EmptyView()
                         }.hidden()
                     )
             }
         }.navigationTitle("Astronomy Pics")
-    }
-    
-    func NavigateToFavoritesView() {
-
     }
 }
 
