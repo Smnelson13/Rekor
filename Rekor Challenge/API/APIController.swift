@@ -48,11 +48,12 @@ import Foundation
             switch result {
             case .failure(let error):
                 self.errorMessage = error.localizedDescription
-                print(error)
-                break
+                completion(nil, error)
             case .success(let result):
+                print("Success")
+                self.apods = result // call completion 
                 print(result)
-                break
+                completion(apods, nil)
             }
         })
     }

@@ -11,7 +11,7 @@ struct APOD: Codable, Identifiable {
     //var id: ObjectIdentifier
     
     let id: UUID = UUID()
-    let copyright: String
+    let copyright: String?
     let date: String
     let explanation: String
     let imageURL: String
@@ -34,7 +34,7 @@ struct APOD: Codable, Identifiable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
-        copyright = try values.decode(String.self, forKey: .copyright)
+        copyright = try values.decodeIfPresent(String.self, forKey: .copyright)
         date = try values.decode(String.self, forKey: .date)
         explanation = try values.decode(String.self, forKey: .explanation)
         imageURL = try values.decode(String.self, forKey: .imageURL)
@@ -44,7 +44,7 @@ struct APOD: Codable, Identifiable {
         title = try values.decode(String.self, forKey: .title)
     }
 
-    init(copyright: String, date: String, explantation: String, imageURL: String, hdImageURL: String, mediaType: String, serviceVersion: String, title: String) {
+    init(copyright: String?, date: String, explantation: String, imageURL: String, hdImageURL: String, mediaType: String, serviceVersion: String, title: String) {
         self.copyright = copyright
         self.date = date
         self.explanation = explantation

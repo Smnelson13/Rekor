@@ -18,18 +18,14 @@ struct ContentView: View {
             } else if store.errorMessage != nil {
                 ErrorView(errorMessage: store.errorMessage ?? "Failed to retrieve pictures.")
             } else {
-                APODListView(apods: APOD.MockAPODS())
+                if let apods = store.apods {
+                    APODListView(apods: apods)
+                }
             }
         }.onAppear {
-            store.getAPOTD()
+            store.getLast30APODS()
         }
     }
-    
-    private func fetchAPOTD() {
-        store.getAPOTD()
-        
-    }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
