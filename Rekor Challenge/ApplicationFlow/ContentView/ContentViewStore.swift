@@ -19,29 +19,53 @@ extension ContentView {
         let apiController = APIController()
         
         func getLast30APODS() {
+            let urlString = APIURLs.last30DaysURL(dateThirtyDaysAgoFormatted(), endDate: currentDateFormatted())
             isLoading = true
-            self.apiController.fetchMultipleAPODS(Constants.last30Days) { data, error in
-                if let data = data {
-                    print("Success - \(data)")
-                    self.apods = data
-                } else if let err = error {
-                    print("ERROR loading data - \(err)")
+            self.apiController.fetchMultipleAPODS(urlString) { data, error in
+                DispatchQueue.main.async {
+                    if let data = data {
+                        print("Success - \(data)")
+                        self.apods = data
+                    } else if let err = error {
+                        print("ERROR loading data - \(err)")
+                    }
+                    self.isLoading = false
                 }
-                self.isLoading = false
             }
         }
         
-        func getSingleApod() {
+        func getApodOfTheDay() {
             isLoading = true
-            self.apiController.fetchAPOD(Constants.last30Days) { data, error in
-                if let data = data {
-                    print("Success - \(data)")
-                    self.apod = data
-                } else if let err = error {
-                    print("ERROR loading data - \(err)")
+            self.apiController.fetchAPOD(APIURLs.apodOfTheDay()) { data, error in
+                DispatchQueue.main.async {
+                    if let data = data {
+                        print("Success - \(data)")
+                        self.apod = data
+                    } else if let err = error {
+                        print("ERROR loading data - \(err)")
+                    }
+                    self.isLoading = false
                 }
-                self.isLoading = false
             }
+        }
+
+        func currentDateFormatted() -> String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let currentDateFormatted = formatter.string(from: Date())
+            
+            return currentDateFormatted
+        }
+        
+        func dateThirtyDaysAgoFormatted() -> String {
+            guard let thirtyDaysBeforeDate = Calendar.current.date(byAdding: .day, value: -30, to: Date()) else {
+                return ""
+            }
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let formattedDate = formatter.string(from: thirtyDaysBeforeDate)
+            
+            return formattedDate
         }
     }
 }

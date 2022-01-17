@@ -15,7 +15,7 @@ struct APODDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                AsyncImage(url: URL(string: apod.hdImageURL)) { phase in
+                AsyncImage(url: URL(string: apod.hdImageURL ?? apod.imageURL)) { phase in
                     if let image = phase.image {
                         image.resizable()
                             .scaledToFit()

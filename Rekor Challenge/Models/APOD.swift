@@ -15,7 +15,7 @@ struct APOD: Codable, Identifiable {
     let date: String
     let explanation: String
     let imageURL: String
-    let hdImageURL: String
+    let hdImageURL: String?
     let mediaType: String
     let serviceVersion: String
     let title: String
@@ -38,13 +38,13 @@ struct APOD: Codable, Identifiable {
         date = try values.decode(String.self, forKey: .date)
         explanation = try values.decode(String.self, forKey: .explanation)
         imageURL = try values.decode(String.self, forKey: .imageURL)
-        hdImageURL = try values.decode(String.self, forKey: .hdImageURL)
+        hdImageURL = try values.decodeIfPresent(String.self, forKey: .hdImageURL)
         mediaType = try values.decode(String.self, forKey: .mediaType)
         serviceVersion = try values.decode(String.self, forKey: .serviceVersion)
         title = try values.decode(String.self, forKey: .title)
     }
 
-    init(copyright: String?, date: String, explantation: String, imageURL: String, hdImageURL: String, mediaType: String, serviceVersion: String, title: String) {
+    init(copyright: String?, date: String, explantation: String, imageURL: String, hdImageURL: String?, mediaType: String, serviceVersion: String, title: String) {
         self.copyright = copyright
         self.date = date
         self.explanation = explantation

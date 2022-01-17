@@ -9,9 +9,7 @@ import Foundation
 
 @MainActor class APIController: ObservableObject {
     
-    var delegate: APIControllerDelegate?
-    
-    @Published var isLoading: Bool = false
+    //@Published var isLoading: Bool = false
     @Published var apods = [APOD]()
     @Published var errorMessage: String? = nil
     
@@ -21,9 +19,9 @@ import Foundation
             completion(nil, APIError.invalidURL)
             return
         }
-        isLoading = true
+      //  isLoading = true
         URLSession.shared.makeRequest(url: url, expecting: APOD.self) { [unowned self] result in
-            isLoading = false
+        //    isLoading = false
             errorMessage = nil
             switch result {
                 case .success(let response):
@@ -41,10 +39,10 @@ import Foundation
             completion(nil, APIError.invalidURL)
             return
         }
-        isLoading = true
+    //    isLoading = true
         errorMessage = nil
         URLSession.shared.makeRequest(url: url, expecting: [APOD].self, completion: { [unowned self] result in
-            isLoading = false
+     //       isLoading = false
             switch result {
             case .failure(let error):
                 self.errorMessage = error.localizedDescription
