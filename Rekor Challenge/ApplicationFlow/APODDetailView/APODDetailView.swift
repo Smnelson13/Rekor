@@ -70,10 +70,6 @@ struct APODDetailView: View {
         }
     }
     
-    func showAlert() {
-        
-    }
-    
     func favoriteAPOD() {
         store.favoriteAPOD(apod)
     }
