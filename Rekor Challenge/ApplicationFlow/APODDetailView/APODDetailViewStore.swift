@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension APODDetailView {
     
@@ -18,19 +19,31 @@ extension APODDetailView {
         let defaults = UserDefaults.standard
         var favorites = [APOD]()
 
-        // TODO - optimize favs, allow removing one, and don't add a new one if there is an old one.
         func favoriteAPOD(_ apod: APOD) {
             isLoading = true
-            // try nilling out favs
+            favorites = []
+            var isFavorited: Bool = false
+            
             if let data = defaults.data(forKey: Keys.favoritesKey) {
                 if let config = try? JSONDecoder().decode([APOD].self, from: data) {
                     favorites = config
                 }
             }
-            favorites.append(apod)
-            if let encoded = try? JSONEncoder().encode(favorites) {
-                defaults.set(encoded, forKey: Keys.favoritesKey)
-                print("saved")
+        
+            for favorite in favorites {
+                if favorite.imageURL == apod.imageURL {
+                    isFavorited = true
+                }
+            }
+
+            if isFavorited {
+                errorMessage = "Already in Favorites"
+            } else if !isFavorited {
+                favorites.append(apod)
+                if let encoded = try? JSONEncoder().encode(favorites) {
+                    defaults.set(encoded, forKey: Keys.favoritesKey)
+                    print("saved")
+                }
             }
             isLoading = false
         }
