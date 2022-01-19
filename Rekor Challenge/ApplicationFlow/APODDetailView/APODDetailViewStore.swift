@@ -15,6 +15,16 @@ extension APODDetailView {
         @Published private(set) var apods: [APOD]?
         @Published var isLoading: Bool = false
         @Published var errorMessage: String? = nil
+        @Published private(set) var activeError: LocalizedError?
+         
+            var isPresentingAlert: Binding<Bool> {
+                return Binding<Bool>(get: {
+                    return self.activeError != nil
+                }, set: { newValue in
+                    guard !newValue else { return }
+                    self.activeError = nil
+                })
+            }
         
         let defaults = UserDefaults.standard
         var favorites = [APOD]()
@@ -37,12 +47,12 @@ extension APODDetailView {
             }
 
             if isFavorited {
-                errorMessage = "Already in Favorites"
+                activeError = FavoritesError.alreadyFavorited
             } else if !isFavorited {
                 favorites.append(apod)
                 if let encoded = try? JSONEncoder().encode(favorites) {
                     defaults.set(encoded, forKey: Keys.favoritesKey)
-                    print("saved")
+                    activeError = FavoritesError.savedInDefaults
                 }
             }
             isLoading = false

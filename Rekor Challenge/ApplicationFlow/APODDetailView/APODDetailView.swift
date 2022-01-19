@@ -61,7 +61,9 @@ struct APODDetailView: View {
                                 .background(Color.blue)
                                 .cornerRadius(15, antialiased: true)
                         }
-                    }
+                    }.alert(isPresented: store.isPresentingAlert, content: {
+                        Alert(localizedError: store.activeError!)
+                    })
                 }
             }
 

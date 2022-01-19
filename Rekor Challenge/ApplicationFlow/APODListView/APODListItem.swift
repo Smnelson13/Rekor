@@ -36,7 +36,6 @@ struct APODListItem: View {
             
             VStack(alignment: .leading, spacing: 5) {
                 Text(apod.title).font(.headline)
-                //Text(apod.explanation)
             }
         }
     }
