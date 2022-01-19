@@ -11,7 +11,10 @@ struct APODDetailView: View {
     
     let apod: APOD
     let imageSize: CGFloat = 300
+    
     @StateObject private var store = APODDetailViewStore()
+    @State private var currentScale: CGFloat = 0
+    @State private var finalScale: CGFloat = 1
     
     var body: some View {
         ScrollView {
@@ -29,7 +32,17 @@ struct APODDetailView: View {
                     } else {
                         ProgressView().frame(width: imageSize, height: imageSize)
                     }
-                }
+                }.scaleEffect(finalScale + currentScale)
+                    .gesture(
+                        MagnificationGesture().onChanged({ scale in
+                            currentScale = scale
+                        })
+                            .onEnded({ scale in
+                                finalScale = scale
+                                currentScale = 0
+                            })
+                    )
+                
                 VStack(alignment: .center, spacing: 15) {
                     Text(apod.title).font(.headline)
                     Text(apod.explanation).font(.footnote).padding()
