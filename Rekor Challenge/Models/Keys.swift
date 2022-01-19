@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum Keys {
     static let apiKey = "mHLf7hT8c503Pe0IQt7CIdd6roXA1gaAibzBydbH"
     static let favoritesKey = "FavoritesKey"

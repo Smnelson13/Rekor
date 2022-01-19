@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ErrorView: View {
     
-    //@ObservedObject var apiController: APIController
     var errorMessage: String
     
     var body: some View {
@@ -22,7 +21,6 @@ struct ErrorView: View {
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-      //  ErrorView(apiController: APIController())
-        ErrorView(errorMessage: "")
+        ErrorView(errorMessage: "Generic Error Message")
     }
 }

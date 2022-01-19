@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoritesView: View {
     
-    //var apods: [APOD]?
+    var apods: [APOD]?
     @StateObject private var store = FavoritesViewStore()
     
     var body: some View {
@@ -34,7 +34,7 @@ struct FavoritesView: View {
         }.navigationTitle("Favorites")
             .onAppear(perform: {
                 store.getFavorites()
-            })
+        })
     }
 }
 

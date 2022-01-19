@@ -18,13 +18,10 @@ extension FavoritesView {
         func getFavorites() {
             isLoading = true
             if let data = UserDefaults.standard.data(forKey: Keys.favoritesKey) {
-                if let decoded = try? JSONDecoder().decode([APOD].self, from: data) {
-                    apods = decoded
-                } else {
-                    errorMessage = "Unable to decode favorites."
-                }
+                let config = try? JSONDecoder().decode([APOD].self, from: data)
+                apods = config
             } else {
-                errorMessage = "Unable to find favorites in user defaults."
+                errorMessage = "Unable To Retrieve Favorites."
             }
             isLoading = false
         }

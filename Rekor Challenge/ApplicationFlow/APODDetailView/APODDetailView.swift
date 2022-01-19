@@ -11,7 +11,7 @@ struct APODDetailView: View {
     
     let apod: APOD
     let imageSize: CGFloat = 300
-    let defaults = UserDefaults.standard
+    @StateObject private var store = APODDetailViewStore()
     
     var body: some View {
         ScrollView {
@@ -30,7 +30,6 @@ struct APODDetailView: View {
                         ProgressView().frame(width: imageSize, height: imageSize)
                     }
                 }
-                
                 VStack(alignment: .center, spacing: 15) {
                     Text(apod.title).font(.headline)
                     Text(apod.explanation).font(.footnote).padding()
@@ -47,11 +46,8 @@ struct APODDetailView: View {
         }
     }
     
-    private func favoriteAPOD() {
-        print("Current APOD - \(apod)")
-        if let encoded = try? JSONEncoder().encode(apod) {
-            defaults.set(encoded, forKey: Keys.favoritesKey)
-        }
+    func favoriteAPOD() {
+        store.favoriteAPOD(apod)
     }
 }
 

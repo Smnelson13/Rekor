@@ -9,7 +9,7 @@ import Foundation
 
 struct APIURLs {
     static func last30DaysURL(_ startDate: String, endDate: String) -> String {
-        return "https://api.nasa.gov/planetary/apod?api_key=\(Constants.apiKey)&start_date=\(startDate)&end_date=\(endDate)"
+        return "https://api.nasa.gov/planetary/apod?api_key=\(Keys.apiKey)&start_date=\(startDate)&end_date=\(endDate)"
     }
     
     static func apodOfTheDay() -> String {

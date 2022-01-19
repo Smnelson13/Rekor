@@ -8,7 +8,6 @@
 import Foundation
 
 struct APOD: Codable, Identifiable {
-    //var id: ObjectIdentifier
     
     let id: UUID = UUID()
     let copyright: String?
